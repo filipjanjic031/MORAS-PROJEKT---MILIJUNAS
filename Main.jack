@@ -1,0 +1,730 @@
+class Main
+{   
+    static bool game,odustajanje;
+    static int brojPitanja,time,ponavljanje;
+
+    function void initGame()
+    {
+        let game = true;
+        let brojPitanja = 1;
+        let odustajanje = false;
+        let ponavljanje = 0;
+
+        return;
+    }
+
+    function int getPon()
+    {
+        return ponavljanje;
+    }
+
+    function int odaberiPitanje()
+    {
+        var int odabrani;
+        if((brojPitanja>0) & (brojPitanja<3))
+        {
+            let odabrani = Generator.randRange(8);
+            return odabrani;
+        }
+        if((brojPitanja>2) & (brojPitanja<7))
+        {
+            let odabrani = Generator.randRange(7);
+            return odabrani;
+        }
+        if((brojPitanja>6) & (brojPitanja<10))
+        {
+            let odabrani = Generator.randRange(6);
+            return odabrani;
+        }
+        if((brojPitanja>9) & (brojPitanja<12))
+        {
+            let odabrani = Generator.randRange(5);
+            return odabrani;
+        }
+        if((brojPitanja>11) & (brojPitanja<15))
+        {
+            let odabrani = Generator.randRange(4);
+            return odabrani;
+        }
+        if(brojPitanja=15)
+        {
+            let odabrani = Generator.randRange(3);
+            return odabrani;
+        }
+
+        return 0;
+    }
+
+    function void provjeriOdgovor(int odabrano,int ans)
+    {
+        var int tocanOdg;
+    
+        let tocanOdg = Game.getTocanOdg(odabrano);
+        if((ans=65) | (ans=97))
+        {
+            let ans = 0;
+        }
+        if((ans=66) | (ans=98))
+        {
+            let ans = 1;
+        }
+        if((ans=67) | (ans=99))
+        {
+            let ans = 2;
+        }
+        if((ans=68) | (ans=100))
+        {
+            let ans = 3;
+        }
+        if(ans=tocanOdg)
+        {
+            let brojPitanja = brojPitanja + 1;
+            do Game.setbrojPitanja(brojPitanja);
+        }
+        else
+        {
+            let game = false;
+        }
+        return;
+    }
+
+    function void zoviJoker(int ans,int odabrano)
+    {
+        if (ans=49){ 
+            do Main.polaPola(odabrano); 
+            do Game.setjok1(false); 
+        }
+        if (ans=50){
+            do Main.publika(odabrano); 
+            do Game.setjok2(false);
+        }
+        if (ans=51){ 
+            do Main.prijatelj(odabrano); 
+            do Game.setjok3(false); 
+        }
+
+        return;
+    }
+
+    function void polaPola(int odabrano)
+    {
+        var int tocan, ostajeNetocan;
+        
+        do Game.setvA(false); do Game.setvB(false);
+        do Game.setvC(false); do Game.setvD(false);
+
+        let tocan = Game.getTocanOdg(odabrano);
+        if (tocan = 0) { do Game.setvA(true); }
+        if (tocan = 1) { do Game.setvB(true); }
+        if (tocan = 2) { do Game.setvC(true); }
+        if (tocan = 3) { do Game.setvD(true); }
+
+        let ostajeNetocan = Generator.randRange(2);
+        if (~(ostajeNetocan < tocan)) {
+            let ostajeNetocan = ostajeNetocan + 1;
+        }
+
+        if (ostajeNetocan = 0) { do Game.setvA(true); }
+        if (ostajeNetocan = 1) { do Game.setvB(true); }
+        if (ostajeNetocan = 2) { do Game.setvC(true); }
+        if (ostajeNetocan = 3) { do Game.setvD(true); }
+
+        do Main.polaPolaAnimacija((Game.getvA()),(Game.getvB()),(Game.getvC()),(Game.getvD()));
+        return;
+    }
+
+    function void polaPolaAnimacija(bool printA,bool printB,bool printC,bool printD)
+    {
+        do Sys.wait(500);
+        do Screen.setColor(false);
+        if(~(printA=true))
+        {
+            do Screen.drawRectangle(30,170,185,204);
+        }
+        if(~(printB=true))
+        {
+            do Screen.drawRectangle(205,170,360,204);
+        }
+        if(~(printC=true))
+        {
+            do Screen.drawRectangle(30,213,185,247);
+        }
+        if(~(printD=true))
+        {
+            do Screen.drawRectangle(205,213,360,247);
+        }
+        do Screen.setColor(true);
+        return;
+    }
+
+    function void prijatelj(int odabrano) {
+        var int tocan, baza, ostatak, p1, p2, p3, pa, pb, pc, pd, k, maxP;
+        var String s, konacniOdgovor;
+        
+        do Screen.setColor(true);
+        do Screen.drawRectangle(80, 60, 430, 180);
+        do Screen.setColor(false);
+        do Screen.drawRectangle(82, 62, 428, 178);
+
+        do Screen.setColor(true);
+        do myPrint.moveCursor(9, 22);
+        
+        let s = "ZOVEM PRIJATELJA...";
+        do myPrint.printString(s);
+        do s.dispose();
+        
+        do Sys.wait(1500);
+
+        do Screen.setColor(false);
+        do Screen.drawRectangle(85, 80, 425, 120);
+        do Screen.setColor(true);
+        do myPrint.moveCursor(9, 22);
+        
+        let s = "PRIJATELJ RAZMI{LJA...";
+        do myPrint.printString(s);
+        do s.dispose();
+        
+        do Sys.wait(2000);
+
+        let tocan = Game.getTocanOdg(odabrano);
+        if (brojPitanja < 7) {
+            let baza = (-5)*brojPitanja + 95 + Generator.randRange(10);
+        } else {
+            let baza = (550/(brojPitanja + 4)) + Generator.randRange(15);
+        }
+        let ostatak = 100 - baza;
+
+        let p1 = Generator.randRange(ostatak / 2);
+        let p2 = Generator.randRange(ostatak / 2);
+        let p3 = ostatak - (p1 + p2);
+
+        if (tocan = 0) { let pa = baza; let pb = p1; let pc = p2; let pd = p3; }
+        if (tocan = 1) { let pb = baza; let pa = p1; let pc = p2; let pd = p3; }
+        if (tocan = 2) { let pc = baza; let pa = p1; let pb = p2; let pd = p3; }
+        if (tocan = 3) { let pd = baza; let pa = p1; let pb = p2; let pc = p3; }
+
+        let p1 = 0;
+        if (~Game.getvA()) { let p1 = p1 + pa; let pa = 0; }
+        if (~Game.getvB()) { let p1 = p1 + pb; let pb = 0; }
+        if (~Game.getvC()) { let p1 = p1 + pc; let pc = 0; } 
+        if (~Game.getvD()) { let p1 = p1 + pd; let pd = 0; }
+
+        if(p1>0)
+        {
+            let p2 = p1/2;
+            if (Game.getvA()) { if (~(tocan = 0)) { let pa = pa + p2; } }
+            if (Game.getvB()) { if (~(tocan = 1)) { let pb = pb + p2; } }
+            if (Game.getvC()) { if (~(tocan = 2)) { let pc = pc + p2; } }
+            if (Game.getvD()) { if (~(tocan = 3)) { let pd = pd + p2; } }
+            let baza = baza + (p1 - p2);
+        }
+
+        if (tocan = 0) { let pa = baza; }
+        if (tocan = 1) { let pb = baza; }
+        if (tocan = 2) { let pc = baza; }
+        if (tocan = 3) { let pd = baza; }
+
+        let maxP = pa;
+        let konacniOdgovor = "A)";
+
+        if (pb > maxP) { let maxP = pb; let konacniOdgovor = "B)"; }
+        if (pc > maxP) { let maxP = pc; let konacniOdgovor = "C)"; }
+        if (pd > maxP) { let maxP = pd; let konacniOdgovor = "D)"; }
+
+        do Screen.setColor(false);
+        do Screen.drawRectangle(85, 80, 425, 130);
+        do Screen.setColor(true);
+        
+        do myPrint.moveCursor(9, 11);
+        
+        let s = "PRIJATELJ: Mislim da je to}an odgovor ";
+        do myPrint.printString(s);
+        do s.dispose();
+        
+        do myPrint.printString(konacniOdgovor);
+        
+        let s = "!";
+        do myPrint.printString(s);
+        do s.dispose();
+        
+        do myPrint.moveCursor(11, 15);
+        
+        let s = "U taj odgovor sam siguran oko ";
+        do myPrint.printString(s);
+        do s.dispose();
+        
+        do myPrint.printInt(maxP);
+        
+        let s = "%!";
+        do myPrint.printString(s);
+        do s.dispose();
+
+        do myPrint.moveCursor(15, 17);
+        
+        let s = "Pritisnite ENTER za nastavak...";
+        do myPrint.printString(s);
+        do s.dispose();
+
+        let k = 0;
+        while(~(k=128)) {
+            let k = Keyboard.keyPressed();
+            let time = time + 1;
+            if (time > 32766){ let time = 0; }
+        }
+        
+        return;
+    }
+
+    function void publika(int odabrano) {
+        var int tocan, p1, p2, p3, pa, pb, pc, pd, baza, ostatak, k;
+        var String s;
+        
+        do Screen.setColor(true);
+        do Screen.drawRectangle(80, 60, 430, 180);
+
+        do Screen.setColor(false);
+        do Screen.drawRectangle(82, 62, 428, 178);
+
+        do Screen.setColor(true);
+        do myPrint.moveCursor(9, 22);
+        
+        let s = "]EKAJU SE GLASOVI...";
+        do myPrint.printString(s);
+        do s.dispose();
+        
+        do Sys.wait(1000);
+
+        let tocan = Game.getTocanOdg(odabrano);
+        if(brojPitanja<7)
+        {
+            let baza = (-7)*brojPitanja + 82 + Generator.randRange(20);
+        }
+        else
+        {
+            let baza = (375)/(brojPitanja+4) + Generator.randRange(20);
+        }
+        let ostatak = 100 - baza;
+
+        let p1 = Generator.randRange(ostatak / 3);
+        let p2 = Generator.randRange(ostatak / 3);
+        let p3 = ostatak - (p1 + p2);
+
+        if (tocan = 0) { let pa = baza; let pb = p1; let pc = p2; let pd = p3; }
+        if (tocan = 1) { let pb = baza; let pa = p1; let pc = p2; let pd = p3; }
+        if (tocan = 2) { let pc = baza; let pa = p1; let pb = p2; let pd = p3; }
+        if (tocan = 3) { let pd = baza; let pa = p1; let pb = p2; let pc = p3; }
+
+        let p1 = 0;
+        if (~Game.getvA()) { let p1 = p1 + pa; let pa = 0; }
+        if (~Game.getvB()) { let p1 = p1 + pb; let pb = 0; }
+        if (~Game.getvC()) { let p1 = p1 + pc; let pc = 0; } 
+        if (~Game.getvD()) { let p1 = p1 + pd; let pd = 0; }
+
+        if(p1>0)
+        {
+            let p2 = p1/2;
+            if (Game.getvA()) { if (~(tocan = 0)) { let pa = pa + p2; } }
+            if (Game.getvB()) { if (~(tocan = 1)) { let pb = pb + p2; } }
+            if (Game.getvC()) { if (~(tocan = 2)) { let pc = pc + p2; } }
+            if (Game.getvD()) { if (~(tocan = 3)) { let pd = pd + p2; } }
+            let baza = baza + (p1 - p2);
+        }
+
+        if (tocan = 0) { let pa = baza; }
+        if (tocan = 1) { let pb = baza; }
+        if (tocan = 2) { let pc = baza; }
+        if (tocan = 3) { let pd = baza; }
+
+        do Screen.setColor(false);
+        do Screen.drawRectangle(85, 80, 425, 120);
+        do Screen.setColor(true);
+
+        let s = "A";
+        do Main.nacrtajStupac(140, pa, s);
+        do s.dispose();
+
+        let s = "B";
+        do Main.nacrtajStupac(200, pb, s);
+        do s.dispose();
+
+        let s = "C";
+        do Main.nacrtajStupac(260, pc, s);
+        do s.dispose();
+
+        let s = "D";
+        do Main.nacrtajStupac(320, pd, s);
+        do s.dispose();
+
+        do myPrint.moveCursor(15, 17);
+        
+        let s = "Pritisnite ENTER za nastavak...";
+        do myPrint.printString(s);
+        do s.dispose();
+
+        let k = 0;
+        while (~(k = 128)) {
+            let time = time + 1;
+            if (time > 32766){ let time = 0; }
+            let k = Keyboard.keyPressed();
+        }
+        
+        return;
+    }
+
+    function void nacrtajStupac(int x, int postotak, String slovo) {
+        var int visina;
+        let visina = postotak/2; 
+        
+        if (postotak > 0) {
+            do Screen.drawRectangle(x, 130 - visina, x + 25, 130);
+        }
+        
+        do myPrint.moveCursor(13, (x/8));
+        do myPrint.printString(slovo);
+        do myPrint.printString(":");
+        do myPrint.printInt(postotak);
+        do myPrint.printString("%");
+        return;
+    }
+
+    function void ucitajPitanje()
+    {
+        if(brojPitanja=2)
+        {
+            do Game.init2();
+        }
+        if(brojPitanja=3)
+        {
+            do Game.init3();
+        }
+        if(brojPitanja=4)
+        {
+            do Game.init4();
+        }
+        if(brojPitanja=5)
+        {
+            do Game.init5();
+        }
+        if(brojPitanja=6)
+        {
+            do Game.init6();
+        }
+        if(brojPitanja=7)
+        {
+            do Game.init7();
+        }
+        if(brojPitanja=8)
+        {
+            do Game.init8();
+        }
+        if(brojPitanja=9)
+        {
+            do Game.init9();
+        }
+        if(brojPitanja=10)
+        {
+            do Game.init10();
+        }
+        if(brojPitanja=11)
+        {
+            do Game.init11();
+        }
+        if(brojPitanja=12)
+        {
+            do Game.init12();
+        }
+        if(brojPitanja=13)
+        {
+            do Game.init13();
+        }
+        if(brojPitanja=14)
+        {
+            do Game.init14();
+        }
+        if(brojPitanja=15)
+        {
+            do Game.init15();
+        }
+        return;
+    }
+
+    function void kriviOdgovor() {
+        var char tipka;
+        var String s;
+
+        do Screen.clearScreen();
+        do Screen.setColor(true);
+        do Screen.drawRectangle(80, 60, 430, 180);
+        do Screen.setColor(false);
+        do Screen.drawRectangle(82, 62, 428, 178);
+        do Screen.setColor(true);
+
+        do myPrint.moveCursor(8, 16);
+        let s = "NA>ALOST, VA@ ODGOVOR JE NETO]AN!";
+        do myPrint.printString(s);
+        do s.dispose();
+
+        do myPrint.moveCursor(11, 21);
+        let s = "Odlazite kuci s: ";
+        do myPrint.printString(s);
+        do s.dispose();
+
+        let s = Game.getOsigurani(brojPitanja);
+        do myPrint.printString(s);
+        do s.dispose();
+
+        let s = " EUR";
+        do myPrint.printString(s);
+        do s.dispose();
+
+        do myPrint.moveCursor(14, 19);
+        let s = "Pritisnite ENTER za kraj...";
+        do myPrint.printString(s);
+        do s.dispose();
+
+        let tipka = 0;
+        while (~(tipka = 128)) {
+            let tipka = Keyboard.keyPressed();
+        }
+
+        do Screen.clearScreen();
+        return;
+    }
+
+    function void odustao() {
+        var char tipka;
+        var String s;
+
+        do Screen.clearScreen();
+        do Screen.setColor(true);
+        do Screen.drawRectangle(80, 60, 430, 180);
+        do Screen.setColor(false);
+        do Screen.drawRectangle(82, 62, 428, 178);
+        do Screen.setColor(true);
+
+        do myPrint.moveCursor(8, 21);
+        let s = "ODLU]ILI STE ODUSTATI!";
+        do myPrint.printString(s);
+        do s.dispose();
+
+        do myPrint.moveCursor(11, 21);
+        let s = "Odlazite ku~i s: ";
+        do myPrint.printString(s);
+        do s.dispose();
+
+        let s = Game.getNagrada();
+        do myPrint.printString(s);
+        do s.dispose();
+
+        let s = " EUR";
+        do myPrint.printString(s);
+        do s.dispose();
+
+        do myPrint.moveCursor(14, 19);
+        let s = "Pritisnite ENTER za kraj...";
+        do myPrint.printString(s);
+        do s.dispose();
+
+        let tipka = 0;
+        while (~(tipka = 128)) {
+            let tipka = Keyboard.keyPressed();
+        }
+
+        do Screen.clearScreen();
+        return;
+    }
+
+    function void tocanOdgovor() {
+        var char tipka;
+        var String s;
+
+        do Screen.setColor(true);
+        do Screen.drawRectangle(80, 60, 430, 180);
+        do Screen.setColor(false);
+        do Screen.drawRectangle(82, 62, 428, 178);
+        do Screen.setColor(true);
+
+        do myPrint.moveCursor(7, 22);
+        let s = "VA@ ODGOVOR JE TO]AN!";
+        do myPrint.printString(s);
+        do s.dispose();
+
+        do myPrint.moveCursor(10, 21);
+        let s = "Osvojili ste: ";
+        do myPrint.printString(s);
+        do s.dispose();
+
+        do myPrint.printString(Game.getNagrada());
+
+        let s = " EUR";
+        do myPrint.printString(s);
+        do s.dispose();
+
+        do myPrint.moveCursor(12, 21);
+        let s = "Osigurana svota: ";
+        do myPrint.printString(s);
+        do s.dispose();
+
+        do myPrint.printString(Game.getOsigurani(brojPitanja));
+
+        let s = " EUR";
+        do myPrint.printString(s);
+        do s.dispose();
+
+        do myPrint.moveCursor(15, 13);
+        let s = "Pritisnite ENTER za sljede~e pitanje...";
+        do myPrint.printString(s);
+        do s.dispose();
+
+        let tipka = 0;
+        while (~(tipka = 128)) {
+            let tipka = Keyboard.keyPressed();
+        }
+
+        do Screen.clearScreen();
+        return;
+    }
+
+    function void osvojioMilijun() {
+        var char tipka;
+        var int i,j;
+
+        do Screen.clearScreen();
+        do Screen.setColor(true);
+        
+        do Screen.drawRectangle(80, 60, 430, 180); 
+        do Screen.setColor(false);
+        do Screen.drawRectangle(82, 62, 428, 178); 
+        do Screen.setColor(true);
+
+        do myPrint.moveCursor(7, 25);
+        do myPrint.printString("NEVJEROJATNO!!!");
+        do myPrint.moveCursor(9, 18);
+        do myPrint.printString("OSVOJILI STE 1.000.000 EURA!");
+        do myPrint.moveCursor(11, 21);
+        do myPrint.printString("POSTALI STE MILIJUNA@!");
+        do myPrint.moveCursor(15, 16);
+        do myPrint.printString("Pritisnite ENTER za kraj igre...");
+
+        let tipka = 0;
+        while (~(tipka = 128)){
+            let i = Generator.randRange(508); 
+            let j = Generator.randRange(252);
+
+            do Screen.setColor(true);
+            do Screen.drawRectangle(i, j, i + 2, j + 2);
+            
+            do Sys.wait(50);
+            let tipka = Keyboard.keyPressed();
+        }
+        return;
+    }
+
+    function void osvjeziEkran(int odabrano) {
+        do Screen.clearScreen();
+        do Game.pokreniPitanje(odabrano);
+        
+        if (~Game.getvA()) { do Screen.setColor(false); do Screen.drawRectangle(30,170,185,204); do Screen.setColor(true); }
+        if (~Game.getvB()) { do Screen.setColor(false); do Screen.drawRectangle(205,170,360,204); do Screen.setColor(true); }
+        if (~Game.getvC()) { do Screen.setColor(false); do Screen.drawRectangle(30,213,185,247); do Screen.setColor(true); }
+        if (~Game.getvD()) { do Screen.setColor(false); do Screen.drawRectangle(205,213,360,247); do Screen.setColor(true); }
+        return;
+}
+
+    function void main()
+    {
+        var int k,ans,odabrano;
+        var bool cekajOdgovor;
+
+        do HomeScreen.HomeScreenMain();
+        let k = 0;
+
+        while(~(k=128))
+        {
+            if(time<32767){
+                let time = time + 1;
+            }
+            else
+            {
+                let time = 0;
+            }
+            let k = Keyboard.keyPressed();
+        }
+
+        do Screen.clearScreen();
+        do Main.initGame();
+        do myPrint.init();
+        do myPrint.initLineLength();
+        do myPrint.initMap();
+        do Game.init1();
+
+        while(game) {
+            do Screen.clearScreen();
+            do Game.resetPitanje(); 
+
+            if(~(brojPitanja=1)) {
+                do Main.ucitajPitanje();
+                do Main.tocanOdgovor();
+            }
+            
+            do Generator.setSeed(time);
+            let odabrano = Main.odaberiPitanje();
+            do Game.pokreniPitanje(odabrano);
+
+            let cekajOdgovor = true;
+            while(cekajOdgovor) {
+                let ponavljanje = 0;
+                let ans = 0;
+                while(ans = 0) {
+                    let ans = Keyboard.keyPressed();
+                    let time = time + 1;
+                    if (time > 32766){ let time = 0; }
+                }
+                do Generator.setSeed(time);
+
+                if ((ans = 69) | (ans = 101)) {
+                    let cekajOdgovor = false;
+                    let game = false;
+                    let odustajanje = true;
+                    do Main.odustao(); 
+                } 
+                else {
+                    if (((ans=49) & Game.getjok1()) | ((ans=50) & Game.getjok2()) | ((ans=51) & Game.getjok3())) {
+                        do Main.zoviJoker(ans, odabrano); 
+                        let ponavljanje = 1;
+                        do Main.osvjeziEkran(odabrano); 
+                    } 
+                    else {
+                        if ((((ans=65)|(ans=97)) & Game.getvA()) | 
+                            (((ans=66)|(ans=98)) & Game.getvB()) | 
+                            (((ans=67)|(ans=99)) & Game.getvC()) | 
+                            (((ans=68)|(ans=100)) & Game.getvD())) {
+                            
+                            do Main.provjeriOdgovor(odabrano, ans);
+                            
+                            if (brojPitanja = 16) {
+                                let game = false;
+                                let cekajOdgovor = false;
+                                let odustajanje = true; 
+                                do Main.osvojioMilijun();
+                            } 
+                            else{
+                            if (game) {
+                                let cekajOdgovor = false; 
+                            } 
+                            else{
+                                let cekajOdgovor = false;
+                            }
+                        }
+                        }
+                    }
+                }
+                do Sys.wait(200); 
+            }
+        }
+        if(~(odustajanje=true)){
+            do Main.kriviOdgovor();
+        }
+        return;
+    }
+}

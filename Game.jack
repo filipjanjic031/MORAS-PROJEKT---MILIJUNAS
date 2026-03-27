@@ -1,0 +1,1474 @@
+class Game
+{
+    static int brojPitanja;
+    static int tocanOdg;
+    static Array tablicaNagrada;
+    static Array pool1,pool2,pool3,pool4,pool5,pool6,pool7,pool8,pool9,pool10,pool11,pool12,pool13,pool14,pool15;
+    static Array ans1,ans2,ans3,ans4,ans5,ans6,ans7,ans8,ans9,ans10,ans11,ans12,ans13,ans14,ans15;
+    static bool jok1,jok2,jok3,vA, vB, vC, vD;
+
+    function void init1() {
+        let tablicaNagrada = Array.new(16);  
+        let tablicaNagrada[0] = "0";
+        let tablicaNagrada[1] = "100";
+        let tablicaNagrada[2] = "200";
+        let tablicaNagrada[3] = "300";
+        let tablicaNagrada[4] = "500";
+        let tablicaNagrada[5] = "1 000";
+        let tablicaNagrada[6] = "2 000";
+        let tablicaNagrada[7] = "4 000";
+        let tablicaNagrada[8] = "8 000";
+        let tablicaNagrada[9] = "16 000";
+        let tablicaNagrada[10] = "32 000";
+        let tablicaNagrada[11] = "64 000";
+        let tablicaNagrada[12] = "125 000";
+        let tablicaNagrada[13] = "250 000";
+        let tablicaNagrada[14] = "500 000";
+        let tablicaNagrada[15] = "1 000 000"; 
+
+        let brojPitanja = 1;
+        let jok1 = true;
+        let jok2 = true;
+        let jok3 = true;
+
+        /* ZAKOMENTIRANA PITANJA NISU STALA PA SAM IH MORAO IZBACITI*/
+
+        let pool1 = Array.new(9);
+        let ans1 = Array.new(36);
+
+        let pool1[0] = "Kojim osjetilom zdrav }ovjek prima vi{e od 70% podra`aja iz okoline?";
+        let pool1[1] = "Nastavite niz: 1 2 4 8 ...";
+        let pool1[2] = "Ava, ava, ava, nitko nije...";
+        let pool1[3] = "A mi volimo fe{tu i ... {to kod staroga Duje?";
+        let pool1[4] = "I zidovi imaju ...";
+        let pool1[5] = "Gem, set, ...";
+        let pool1[6] = "Ka`e se da ma}ka ima ...";
+        let pool1[7] = "]emu prkosi umirovljenik koji se pje{ice popne na Sljeme?";
+        let pool1[8] = "Ono {to je kul, to je i ...";
+        /*let pool1[9] = "@to naj}e{~e formiraju plesa}i u kolu?";*/
+
+        let ans1[0] = "vidom";
+        let ans1[1] = "sluhom";
+        let ans1[2] = "njuhom";
+        let ans1[3] = "dodirom"; // 1a
+        let ans1[4] = "10";
+        let ans1[5] = "16";
+        let ans1[6] = "32";
+        let ans1[7] = "64"; // 2b
+        let ans1[8] = "brava";
+        let ans1[9] = "strava";
+        let ans1[10] = "krava";
+        let ans1[11] = "trava"; // 3c
+        let ans1[12] = "}obanac";
+        let ans1[13] = "{trukle";
+        let ans1[14] = "sir i vrhnje";
+        let ans1[15] = "ribu";
+        let ans1[16] = "u{i";
+        let ans1[17] = "trakavice";
+        let ans1[18] = "gliste";
+        let ans1[19] = "krpelje";
+        let ans1[20] = "utakmica";
+        let ans1[21] = "me}";
+        let ans1[22] = "borba";
+        let ans1[23] = "ogled";
+        let ans1[24] = "sedam vlasnika";
+        let ans1[25] = "osam ku~a";
+        let ans1[26] = "devet `ivota";
+        let ans1[27] = "deset sela";
+        let ans1[28] = "vikendima";
+        let ans1[29] = "mjesecima";
+        let ans1[30] = "danima";
+        let ans1[31] = "godinama";
+        let ans1[32] = "vau";
+        let ans1[33] = "ciju";
+        let ans1[34] = "mjau";
+        let ans1[35] = "mu";
+        /*let ans1[36] = "kvadrat";
+        let ans1[37] = "krug";
+        let ans1[38] = "trapez";
+        let ans1[39] = "trokut";*/
+
+        return;
+    }
+
+    function void init2(){
+        do Game.obrisiNizStringova(pool1,9);
+        do Game.obrisiNizStringova(ans1,36);
+
+        let pool2 = Array.new(9);
+        let ans2 = Array.new(36);
+
+        let pool2[0] = "Koja boja prevladava na zastavi Turske?";
+        let pool2[1] = "Zastava Ujedinjenog Kraljevstva kombinacija je ...";
+        let pool2[2] = "Objeru}no odbijanje lopte u odbojci naziva se bager ili ...";
+        let pool2[3] = "@to od ovoga nije kava, ali je nezamislivo bez kave?";
+        let pool2[4] = "Ako s nekim dijelite mi{ljenje, onda pu{ete u ...";
+        let pool2[5] = "Koji je organ }esto br`i od pameti?";
+        let pool2[6] = "Karta{i vade asa iz rukava, a ma|ioni}ari ...";
+        let pool2[7] = "@to je pesimistu napola prazno, a optimistu napola puno?";
+        let pool2[8] = "Naziv kojeg je pade`a ujedno i glazbeno dijelo bez ljudskog glasa?";
+        /*let pool2[9] = "@to se ne razbija dok nije puno?";*/
+
+        let ans2[0] = "crvena";
+        let ans2[1] = "bijela";
+        let ans2[2] = "zelena";
+        let ans2[3] = "`uta"; // 1a
+        let ans2[4] = "orlova";
+        let ans2[5] = "kri`eva";
+        let ans2[6] = "ma}eva";
+        let ans2[7] = "zvjezdica"; // 2b
+        let ans2[8] = "odvija}";
+        let ans2[9] = "svrdlo";
+        let ans2[10] = "}eki~";
+        let ans2[11] = "turpija"; // 3c
+        let ans2[12] = "macchiato";
+        let ans2[13] = "espresso";
+        let ans2[14] = "cappuccino";
+        let ans2[15] = "tiramisu";
+        let ans2[16] = "isti rog";
+        let ans2[17] = "istu trubu";
+        let ans2[18] = "isti klarinet";
+        let ans2[19] = "istu flautu";
+        let ans2[20] = "bubreg";
+        let ans2[21] = "jezik";
+        let ans2[22] = "nos";
+        let ans2[23] = "`eludac";
+        let ans2[24] = "slona iz staklenke";
+        let ans2[25] = "ribu iz vode";
+        let ans2[26] = "zeca iz {e{ira";
+        let ans2[27] = "ma}ka iz vre~e";
+        let ans2[28] = "ga~e";
+        let ans2[29] = "kufer";
+        let ans2[30] = "kapa";
+        let ans2[31] = "}a{a";
+        let ans2[32] = "instrumental";
+        let ans2[33] = "nominativ";
+        let ans2[34] = "akuzativ";
+        let ans2[35] = "vokativ";
+        /*let ans2[36] = "spravica kravica";
+        let ans2[37] = "kasica prasica";
+        let ans2[38] = "purica parica";
+        let ans2[39] = "nov}ica ov}ica";*/
+
+        return;
+    }
+
+    function void init3(){
+        do Game.obrisiNizStringova(pool2,9);
+        do Game.obrisiNizStringova(ans2,36);
+        
+        let pool3 = Array.new(8);
+        let ans3 = Array.new(32);
+
+        let pool3[0] = "Koju `ivotinju je Kleopatra iskoristila da se ubije?";
+        let pool3[1] = "Organizmi osoba sa celijaklijom ne podnose jednu bjelan}evinu. Koju?";
+        let pool3[2] = "Koja {ahovska figura djeluje samo po dijagonali?";
+        let pool3[3] = "Koja je kratica zapisa elektri}nih potencijala sr}anog mi{i~a?";
+        let pool3[4] = "Koliko je potrebno Zemlji da se jedanput okrene oko svoje osi?";
+        let pool3[5] = "Uz {to obi}no ve`emo kraticu Rh?";
+        let pool3[6] = "Koja je od slijede~ih rije}i leksikografski najmanja?";
+        let pool3[7] = "Jabuka, rebro, koljeno, kostim.";
+        /*let pool3[8] = "U kojoj pjesmi srce te{ko suzu pu{ta?";*/
+
+
+        let ans3[0] = "zmiju";
+        let ans3[1] = "slona";
+        let ans3[2] = "pauka";
+        let ans3[3] = "psa";
+        let ans3[4] = "kazein";
+        let ans3[5] = "gluten";
+        let ans3[6] = "avenin";
+        let ans3[7] = "zein"; // 2b
+        let ans3[8] = "top";
+        let ans3[9] = "kraljica";
+        let ans3[10] = "lovac";
+        let ans3[11] = "skaka}"; // 3c
+        let ans3[12] = "EEG";
+        let ans3[13] = "ENG";
+        let ans3[14] = "EFF";
+        let ans3[15] = "EKG";
+        let ans3[16] = "jedan dan";
+        let ans3[17] = "jedan sat";
+        let ans3[18] = "jednu godinu";
+        let ans3[19] = "jedan mjesec";
+        let ans3[20] = "uz fokus";
+        let ans3[21] = "uz faktor";
+        let ans3[22] = "uz foton";
+        let ans3[23] = "uz fundus";
+        let ans3[24] = "dbca";
+        let ans3[25] = "dcab";
+        let ans3[26] = "dabc";
+        let ans3[27] = "dbca";
+        let ans3[28] = "Noa";
+        let ans3[29] = "Mojsije";
+        let ans3[30] = "Abraham";
+        let ans3[31] = "Adam";
+        /*let ans3[32] = "Te{ke boje";
+        let ans3[33] = "Te{ke kosti";
+        let ans3[34] = "Te{ke misli";
+        let ans3[35] = "Te{ke noge";*/
+
+        return;
+    }
+
+    function void init4(){
+        do Game.obrisiNizStringova(pool3,8);
+        do Game.obrisiNizStringova(ans3,32);
+
+        let pool4 = Array.new(8);
+        let ans4 = Array.new(32);
+
+        let pool4[0] = "Tvr|ava herceg Stjepana se nalazi u blizini kojeg grada?";
+        let pool4[1] = "Na satelitskoj snimci Nila, izdvaja se njegova velika ...";
+        let pool4[2] = "Tko pola`e Hipokratovu zakletvu?";
+        let pool4[3] = "Koja vrsta }vrstog i elasti}nog potpornog tkiva gradi vrh na{eg nosa, u{ke, grkljan i du{nik?";
+        let pool4[4] = "U kojem je gradu sjedi{te Europske sredi{nje banke?";
+        let pool4[5] = "Koju je aktivnost u mnogim zemljama popularizirala TV serija Damin Gambit?";
+        let pool4[6] = "Koja je rije} zanaglasnica?";
+        let pool4[7] = "Koje je drugo ime za `garavicu?";
+        /*let pool4[8] = "Naziv glavnog grada Maroka jednak je germanizmu koji se koristi u ...";*/
+
+        let ans4[0] = "Ljubu{kog";
+        let ans4[1] = "@irokog brijega";
+        let ans4[2] = "Mostara";
+        let ans4[3] = "]itluka";
+        let ans4[4] = "gama";
+        let ans4[5] = "delta";
+        let ans4[6] = "alfa";
+        let ans4[7] = "beta"; // 2b
+        let ans4[8] = "politi}ari";
+        let ans4[9] = "sve~enici";
+        let ans4[10] = "lije}nici";
+        let ans4[11] = "vojnici"; // 3c
+        let ans4[12] = "ko{tano";
+        let ans4[13] = "vezivno";
+        let ans4[14] = "mi{i~no";
+        let ans4[15] = "hrskavi}no";
+        let ans4[16] = "u Frankfurtu";
+        let ans4[17] = "u Londonu";
+        let ans4[18] = "u Bruxellesu";
+        let ans4[19] = "u Parizu";
+        let ans4[20] = "nogomet";
+        let ans4[21] = "{ah";
+        let ans4[22] = "plivanje";
+        let ans4[23] = "kockanje";
+        let ans4[24] = "rije}";
+        let ans4[25] = "Koja";
+        let ans4[26] = "je";
+        let ans4[27] = "zanaglasnica";
+        let ans4[28] = "dubioza";
+        let ans4[29] = "skleroza";
+        let ans4[30] = "tromboza";
+        let ans4[31] = "piroza";
+        /*let ans4[32] = "u ekonomiji";
+        let ans4[33] = "u filozofiji";
+        let ans4[34] = "u arhitekturi";
+        let ans4[35] = "u kemiji";*/
+
+        return;
+    }
+
+    function void init5(){
+        do Game.obrisiNizStringova(pool4,8);
+        do Game.obrisiNizStringova(ans4,32);
+
+        let pool5 = Array.new(8);
+        let ans5 = Array.new(32);
+
+        let pool5[0] = "Tko je otkrio penicilin?";
+        let pool5[1] = "Koji je zanstvenik postavio temeljne zakone termodinamike zatvorenih sustava?";
+        let pool5[2] = "Koji je naziv za prvo ra}unalo?";
+        let pool5[3] = "Koji je metal toliko mekan da se vrlo lako mo`e rezati no`em?";
+        let pool5[4] = "U kojoj se dana{njoj dr`avi nalazi neko~ mo~na anti}ka Kartaga?";
+        let pool5[5] = "Kako u bakteriologiji nazivamo postupak ubijanja svih klica i njihovih spora?";
+        let pool5[6] = "U kojem gradu `ivi vi{e od 40% ukupnoga stanovni{tva Urugvaja?";
+        let pool5[7] = "Krv koje krvne grupe ne smije primiti }ovjek krvne grupe B+?";
+        /*let pool5[8] = "Koliko je figura ukupno na po}etku svake {ahovske partije?";*/
+
+        let ans5[0] = "Alexander Fleming";
+        let ans5[1] = "Marie Curie";
+        let ans5[2] = "Louis Pasteur";
+        let ans5[3] = "Thomas Edison";
+        let ans5[4] = "Albert Einstein";
+        let ans5[5] = "Lord Kelvin";
+        let ans5[6] = "James C. Maxwell";
+        let ans5[7] = "Marie Curie";
+        let ans5[8] = "ENCIC";
+        let ans5[9] = "ENTEC";
+        let ans5[10] = "ENIAC";
+        let ans5[11] = "ENIGMA";
+        let ans5[12] = "kobalt";
+        let ans5[13] = "krom";
+        let ans5[14] = "mangan";
+        let ans5[15] = "natrij";
+        let ans5[16] = "Tunis";
+        let ans5[17] = "Gr}ka";
+        let ans5[18] = "Egipat";
+        let ans5[19] = "Turska";
+        let ans5[20] = "pasterizacija";
+        let ans5[21] = "sterilizacija";
+        let ans5[22] = "fermentacija";
+        let ans5[23] = "filtracija";
+        let ans5[24] = "u Santiagu";
+        let ans5[25] = "u Buenos Airesu";
+        let ans5[26] = "u Montevideu";
+        let ans5[27] = "u Riveri";
+        let ans5[28] = "0";
+        let ans5[29] = "B+";
+        let ans5[30] = "B-";
+        let ans5[31] = "A";
+        /*let ans5[32] = "32";
+        let ans5[33] = "16";
+        let ans5[34] = "24";
+        let ans5[35] = "48";*/
+
+        return;
+    }
+
+    function void init6(){
+        do Game.obrisiNizStringova(pool5,8);
+        do Game.obrisiNizStringova(ans5,32);
+
+        let pool6 = Array.new(8);
+        let ans6 = Array.new(32);
+
+        let pool6[0] = "Tko je najstariji nogometni igra} u povijesti Svjetskih prvenstava?";
+        let pool6[1] = "Tko je autor knjige Gorski vijenac?";
+        let pool6[2] = "Na temelju kojeg je dokumenta Zagreb progla{en slobodnim kraljevskim gradom?";
+        let pool6[3] = "Quo vadis? @to to pitamo na latinskom?";
+        let pool6[4] = "Koju je kombinaciju tipki za ponovno pokretanje ra}unala ustanovio David Bradley?";
+        let pool6[5] = "Ljama je najbli`i srodnik kojeg }etverono{ca?";
+        let pool6[6] = "Koliko ukupno sjekuti~a imamo, ako su nam svi zubi na broju?";
+        let pool6[7] = "Tko je skladao himnu Europske unije?";
+
+        let ans6[0] = "Essam El-Hadary";
+        let ans6[1] = "Faryd Mondragon";
+        let ans6[2] = "Paolo Maldini";
+        let ans6[3] = "Roger Milla";
+        let ans6[4] = "Marko Maruli~";
+        let ans6[5] = "Petar II. Njego{";
+        let ans6[6] = "Petar Preradovi~";
+        let ans6[7] = "Pavao R. Vitezovi~";
+        let ans6[8] = "Magne Charte";
+        let ans6[9] = "Pacte Convente";
+        let ans6[10] = "Zlatne bule";
+        let ans6[11] = "Vindolski zakonik";
+        let ans6[12] = "Tko si?";
+        let ans6[13] = "Vjeruje{ li?";
+        let ans6[14] = "Kako si?";
+        let ans6[15] = "Kamo ide{?";
+        let ans6[16] = "Ctrl+Alt+Del";
+        let ans6[17] = "Alt+F4";
+        let ans6[18] = "Shift+Del";
+        let ans6[19] = "Ctrl+Del";
+        let ans6[20] = "antilope";
+        let ans6[21] = "deve";
+        let ans6[22] = "konja";
+        let ans6[23] = "magarca";
+        let ans6[24] = "4";
+        let ans6[25] = "6";
+        let ans6[26] = "8";
+        let ans6[27] = "10";
+        let ans6[28] = "Bach";
+        let ans6[29] = "Wagner";
+        let ans6[30] = "Mozart";
+        let ans6[31] = "Beethoven";
+        
+        return;
+    }
+
+    function void init7(){
+        do Game.obrisiNizStringova(pool6,8);
+        do Game.obrisiNizStringova(ans6,32);
+        
+        let pool7 = Array.new(7);
+        let ans7 = Array.new(28);
+
+        let pool7[0] = "Vitezovi templari nosili su bijele odore s kri`em koje boje?";
+        let pool7[1] = "Nakon bitke kod Jene, Napoleon je trijumfalno pro{ao kroz {to?";
+        let pool7[2] = "Tko je vodio West Ham United izmedu 2008. i 2010. godine?";
+        let pool7[3] = "U kojem zvije`|u sjaji Sjevernja}a?";
+        let pool7[4] = "Koja ma}ka ne lovi iz zasjede, ve~ se uglavnom oslanja na svoju brzinu?";
+        let pool7[5] = "Glavni sto`er }ije je vojske smje{ten u gradu Rawalpindiju?";
+        let pool7[6] = "Da je sjekirom zatukao staricu, znamo zahvaljuju~i F. M. D - u. Tko je on?";
+        /*let pool7[7] = "Kojoj porodici zvijeri pripadaju }agalj, kojot i dingo?";*/
+
+        let ans7[0] = "crvene";
+        let ans7[1] = "zelene";
+        let ans7[2] = "crne";
+        let ans7[3] = "plave";
+        let ans7[4] = "Konstantinov slavoluk";
+        let ans7[5] = "Brandembur{ka vrata";
+        let ans7[6] = "Slavoluk Sergijevaca";
+        let ans7[7] = "Termopilski klanac";
+        let ans7[8] = "Slaven Bili~";
+        let ans7[9] = "David Moyes";
+        let ans7[10] = "Giafranco Zola";
+        let ans7[11] = "Harry Redknapp";
+        let ans7[12] = "u Velikom psu";
+        let ans7[13] = "u Sjevernom kri`u";
+        let ans7[14] = "u Velikom medvjedu";
+        let ans7[15] = "u Malom medvjedu";
+        let ans7[16] = "gepard";
+        let ans7[17] = "tigar";
+        let ans7[18] = "leopard";
+        let ans7[19] = "lav";
+        let ans7[20] = "nepalske";
+        let ans7[21] = "pakistanske";
+        let ans7[22] = "indijske";
+        let ans7[23] = "iranske";
+        let ans7[24] = "P P P";
+        let ans7[25] = "S S S";
+        let ans7[26] = "R R R";
+        let ans7[27] = "M M M";
+        /*let ans7[28] = "porodici ma}aka";
+        let ans7[29] = "porodici vukova";
+        let ans7[30] = "porodici medvjeda";
+        let ans7[31] = "porodici pasa";*/
+
+        return;
+    }
+
+    function void init8(){
+        do Game.obrisiNizStringova(pool7,7);
+        do Game.obrisiNizStringova(ans7,28);
+
+        let pool8 = Array.new(7);
+        let ans8 = Array.new(28);
+
+        let pool8[0] = "Koji je od velikih filmskih festivala prvi na rasporedu u kalendarskoj godini?";
+        let pool8[1] = "Pod kojim je imenom u knji`evnosti mnogo poznatija trgovkinja Anna Fierling?";
+        let pool8[2] = "Koja biljka nije jedna od tri indijske sestre?";
+        let pool8[3] = "Kojeg je filozofa inkvizicija spalila na loma}i 1600. godine?";
+        let pool8[4] = "Kako jo{ nazivamo Knin?";
+        let pool8[5] = "U kojem je brazilskom gradu 1983. ro|en na{ Eduardo da Silva?";
+        let pool8[6] = "Koji je brani} bio najbolji strijelac u povijesti reprezentacije kada se umirovio?";
+        /*let pool8[7] = "]iju zastavu ne obasjava sunce?";*/
+
+        let ans8[0] = "Berlinski";
+        let ans8[1] = "Venecijanski";
+        let ans8[2] = "Canneski";
+        let ans8[3] = "Sundance";
+        let ans8[4] = "Gospo|a Dalloway";
+        let ans8[5] = "Majka Courage";
+        let ans8[6] = "Madame Bovary";
+        let ans8[7] = "Anna Karenina";
+        let ans8[8] = "grah";
+        let ans8[9] = "kukuruz";
+        let ans8[10] = "suncokret";
+        let ans8[11] = "bundeva";
+        let ans8[12] = "Thomasa Morea";
+        let ans8[13] = "Francisa Bacona";
+        let ans8[14] = "Barucha de Spinozu";
+        let ans8[15] = "Giordana Bruna";
+        let ans8[16] = "Zvonimirov grad";
+        let ans8[17] = "Branimirov grad";
+        let ans8[18] = "Tomislavov grad";
+        let ans8[19] = "Kre{imirov grad";
+        let ans8[20] = "u Sao Paulu";
+        let ans8[21] = "u Rio de Janeiru";
+        let ans8[22] = "u Belo Horizonteu";
+        let ans8[23] = "u Salvadoru";
+        let ans8[24] = "Maldini";
+        let ans8[25] = "Zanetti";
+        let ans8[26] = "Hierro";
+        let ans8[27] = "Thuram";
+        /*let ans8[28] = "Argentine";
+        let ans8[29] = "Filipina";
+        let ans8[30] = "Ruande";
+        let ans8[31] = "Vijetnama";*/
+        return;
+    }
+
+    function void init9(){
+        do Game.obrisiNizStringova(pool8,7);
+        do Game.obrisiNizStringova(ans8,28);
+
+        let pool9 = Array.new(7);
+        let ans9 = Array.new(28);
+
+        let pool9[0] = "Koje godine je austro-ugarska vojska uhitila Andrijicu @imi~a?";
+        let pool9[1] = "Koji je od ovih kitova klasificiran kao zubasti kit?";
+        let pool9[2] = "@to dr`i krilati lav sv. Marka na stijegu Mleta}ke Republike?";
+        let pool9[3] = "Koja je oto}na skupina u Atlantskom oceanu nazvana prema najzapadnijem rtu Afrike?";
+        let pool9[4] = "Koga su, prema Knjizi postanka, bra~a prodala trgovcima na putu u Egipat?";
+        let pool9[5] = "Kojim brojem se na proizvodu ozna}avaju jaja iz kaveznog uzgoja?";
+        let pool9[6] = "Kada su Ljetne i Zimske olimpijske igre zadnji put odr`ane iste godine?";
+        /*let pool9[7] = "U Igrama gladi Katniss Everdeen je predstavnica ...";*/
+
+        let ans9[0] = "1871.";
+        let ans9[1] = "1865.";
+        let ans9[2] = "1880.";
+        let ans9[3] = "1855.";
+        let ans9[4] = "sivi kit";
+        let ans9[5] = "kit ulje{ura";
+        let ans9[6] = "o{troklljuni kit";
+        let ans9[7] = "grbavi kit";
+        let ans9[8] = "krunu";
+        let ans9[9] = "klju}";
+        let ans9[10] = "knjigu";
+        let ans9[11] = "`ezlo";
+        let ans9[12] = "Azori";
+        let ans9[13] = "Kanarski otoci";
+        let ans9[14] = "Madeira";
+        let ans9[15] = "Kapverdski otoci";
+        let ans9[16] = "Josipa";
+        let ans9[17] = "Jakova";
+        let ans9[18] = "Judu";
+        let ans9[19] = "Izaka";
+        let ans9[20] = "2";
+        let ans9[21] = "3";
+        let ans9[22] = "1";
+        let ans9[23] = "4";
+        let ans9[24] = "2000.";
+        let ans9[25] = "1988.";
+        let ans9[26] = "1992.";
+        let ans9[27] = "1996.";
+        /*let ans9[28] = "Galaksije 9";
+        let ans9[29] = "Planeta 10";
+        let ans9[30] = "Kontinenta 11";
+        let ans9[31] = "Okruga 12";*/
+        return;
+    }
+
+    function void init10(){
+        do Game.obrisiNizStringova(pool9,7);
+        do Game.obrisiNizStringova(ans9,28);
+
+        let pool10 = Array.new(6);
+        let ans10 = Array.new(24);
+
+        let pool10[0] = "Kako se zove japansko tradicionalno kazali{te?";
+        let pool10[1] = "Koja je grupa 1991. imala hit Losing My Religion u kojem je glavna tema odsvirana na mandolini?";
+        let pool10[2] = "Tko je, nakon Staljina, SSSR-om vladao najdu`e?";
+        let pool10[3] = "Termopilski klanac dobio je ime po susjednom ...";
+        let pool10[4] = "U kojem je gradu 1872. odigrana prva slu`bena nogometna utakmica?";
+        let pool10[5] = "Najdu`i hrvastki most premo{~uje ...";
+        /*let pool10[6] = "Na kojoj je rijeci Kri`nica, jedini naseljeni rije}ni otok u Hrvatskoj?";*/
+
+        let ans10[0] = "NO";
+        let ans10[1] = "NA";
+        let ans10[2] = "NE";
+        let ans10[3] = "NU";
+        let ans10[4] = "Ramones";
+        let ans10[5] = "R.E.M.";
+        let ans10[6] = "Red Hot Chili Peppers";
+        let ans10[7] = "Nirvana"; 
+        let ans10[8] = "Gorba}ov";
+        let ans10[9] = "Hru{}ov";
+        let ans10[10] = "Bre`njev";
+        let ans10[11] = "Andropov"; 
+        let ans10[12] = "planinskom vrhu";
+        let ans10[13] = "ledenja}kom jezeru";
+        let ans10[14] = "vulkanskom oto}i~u";
+        let ans10[15] = "sumpornom vrelu";
+        let ans10[16] = "u Glasgowu";
+        let ans10[17] = "u Cardiffu";
+        let ans10[18] = "u Bristolu";
+        let ans10[19] = "u Belfastu";
+        let ans10[20] = "Malostonski zaljev";
+        let ans10[21] = "rijeku Dravu";
+        let ans10[22] = "rijeku Savu";
+        let ans10[23] = "Novsko `drilo";
+        /*let ans10[24] = "na Kupi";
+        let ans10[25] = "na Sutli";
+        let ans10[26] = "na Dravi";
+        let ans10[27] = "na Savi";*/
+
+        return;
+    }
+
+    function void init11(){
+        do Game.obrisiNizStringova(pool10,6);
+        do Game.obrisiNizStringova(ans10,24);
+
+        let pool11 = Array.new(6);
+        let ans11 = Array.new(24);
+
+        let pool11[0] = "Koji je planet otkriven 1781. i prvi je planet otkriven u novoj eri?";
+        let pool11[1] = "Koji je jedini ameri}ki predsjednik }ije je srednje ime zapravo samo jedno slovo?";
+        let pool11[2] = "Koja je prva dr`ava koja je slu`beno priznala neovisnost SAD-a 1776.?";
+        let pool11[3] = "Koja je jedina dr`ava na svijetu koja ima zastavu koja nije }etverokutnog oblika?";
+        let pool11[4] = "Najdublje jezero na svijetu je ...";
+        let pool11[5] = "Na kojem se otoku nalazi najvi{i vrh @panjolske, vulkan Teide?";
+        /*let pool11[6] = "Koji je knji`evnik odbio primiti Nobelovu nagradu za knji`evnost 1964. godine?";*/
+
+        let ans11[0] = "Uran";
+        let ans11[1] = "Neptun";
+        let ans11[2] = "Saturn";
+        let ans11[3] = "Pluton"; // 1a
+        let ans11[4] = "John F. Kennedy";
+        let ans11[5] = "Harry S. Truman";
+        let ans11[6] = "Ulysses S. Grant";
+        let ans11[7] = "Franklin D. Roosevelt"; // 2b
+        let ans11[8] = "@panjolska";
+        let ans11[9] = "Nizozemska";
+        let ans11[10] = "Maroko";
+        let ans11[11] = "Francuska"; // 3c
+        let ans11[12] = "Laos";
+        let ans11[13] = "Brunej";
+        let ans11[14] = "Butan";
+        let ans11[15] = "Nepal";
+        let ans11[16] = "Bajkal";
+        let ans11[17] = "Malavi";
+        let ans11[18] = "Kaspijsko";
+        let ans11[19] = "Tanganjika";
+        let ans11[20] = "Mallorca";
+        let ans11[21] = "Tenerife";
+        let ans11[22] = "Gran Canaria";
+        let ans11[23] = "Lanzarote";
+        /*let ans11[24] = "Boris Pasternak";
+        let ans11[25] = "Albert Camus";
+        let ans11[26] = "Jean-Paul Sartre";
+        let ans11[27] = "Samuel Beckett";*/
+        
+        return;
+    }
+
+    function void init12(){
+        do Game.obrisiNizStringova(pool11,6);
+        do Game.obrisiNizStringova(ans11,24);
+
+        let pool12 = Array.new(5);
+        let ans12 = Array.new(20);
+
+        let pool12[0] = "Za koja se nebeska tijela pretpostavlja da su najzastupljenija u Oortovom oblaku?";
+        let pool12[1] = "@to zapravo zna}i starogr}ka rije} maraton?";
+        let pool12[2] = "Kojem znanstveniku na nadgrobnoj plo}i pi{e: S = k log W?";
+        let pool12[3] = "Koji knji`evnik je bio dopisnik iz Rusko-japanskog rata?";
+        let pool12[4] = "Koji je matemati}ar prvi definirao koncept algoritma u modernom smislu?";
+        /*let pool12[5] = "Koji je rimski car bio prvi koji je slu`beno prihvatio kr{~anstvo kao dr`avnu religiju Rimskog Carstva?";
+        let pool12[6] = "Koji je jedini kemijski element koji je dobio ime po zloj sili iz germanske mitologije?";*/
+
+        let ans12[0] = "kometi";
+        let ans12[1] = "zvijezde";
+        let ans12[2] = "planeti";
+        let ans12[3] = "crne rupe"; // 1a
+        let ans12[4] = "lovor";
+        let ans12[5] = "koroma}";
+        let ans12[6] = "per{in";
+        let ans12[7] = "vlasac"; // 2b
+        let ans12[8] = "Einsteinu";
+        let ans12[9] = "Avogadru";
+        let ans12[10] = "Boltzmannu";
+        let ans12[11] = "Fourieru"; // 3c
+        let ans12[12] = "Ernest Hamingway";
+        let ans12[13] = "Rudyard Kipling";
+        let ans12[14] = "Herman Melville";
+        let ans12[15] = "Jack London";
+        let ans12[16] = "Al-Khwarizmi";
+        let ans12[17] = "Fibonacci";
+        let ans12[18] = "Pascal";
+        let ans12[19] = "Euklid";
+        /*let ans12[20] = "Konstantin I.";
+        let ans12[21] = "Teodozije I.";
+        let ans12[22] = "Justinijan I.";
+        let ans12[23] = "Dioklecijan";
+        let ans12[24] = "Vanadij";
+        let ans12[25] = "Titan";
+        let ans12[26] = "Kobalt";
+        let ans12[27] = "Nikl";*/
+
+        return;
+    }
+
+    function void init13(){
+        do Game.obrisiNizStringova(pool12,5);
+        do Game.obrisiNizStringova(ans12,20);
+
+        let pool13 = Array.new(5);
+        let ans13 = Array.new(20);
+
+        let pool13[0] = "Odakle, u dru{tvu `ena i uz zvuke zvona, izlazi Carmen na po}etku Bizetove opere?";
+        let pool13[1] = "Koji je metal najrje|i u Zemljinoj kori?";
+        let pool13[2] = "Koja je dr`ava imala najkra~i rat u povijesti?";
+        let pool13[3] = "U anti}koj Gr}koj, koji je grad bio poznat pod nazivom Grad stotinu vrata?";
+        let pool13[4] = "Koji je njema}ki filozof napisao djelo Tako je govorio Zaratustra?";
+        /*let pool13[5] = "Koji je otok u sastavu Splita bio popri{te prve pomorske bitke Domovinskog rata?";*/
+
+        let ans13[0] = "iz tvornice duhana";
+        let ans13[1] = "iz crkve";
+        let ans13[2] = "iz arene s bikovima";
+        let ans13[3] = "iz svoje ku~e"; // 1a
+        let ans13[4] = "Osmij";
+        let ans13[5] = "Rodij";
+        let ans13[6] = "Iridij";
+        let ans13[7] = "Renij"; // 2b
+        let ans13[8] = "Oman";
+        let ans13[9] = "Bahrein";
+        let ans13[10] = "Zanzibar";
+        let ans13[11] = "Brunej"; // 3c
+        let ans13[12] = "Atena";
+        let ans13[13] = "Sparta";
+        let ans13[14] = "Korint";
+        let ans13[15] = "Tebe";
+        let ans13[16] = "Friedrich Nietzsche";
+        let ans13[17] = "Immanuel Kant";
+        let ans13[18] = "Arthur Schopenhauer";
+        let ans13[19] = "Georg Hegel";
+        /*let ans13[20] = "Bra}";
+        let ans13[21] = "@olta";
+        let ans13[22] = "Vis";
+        let ans13[23] = "Kor}ula";*/
+
+        return;
+    }
+
+    function void init14(){
+        do Game.obrisiNizStringova(pool13,5);
+        do Game.obrisiNizStringova(ans13,20);
+
+        let pool14 = Array.new(5);
+        let ans14 = Array.new(20);
+
+        let pool14[0] = "Koja je od ovih dr`ava ujedno i najstarija republika na svijetu?";
+        let pool14[1] = "Koja je `ivotinja prva obi{la Mjesec i vratila se `iva na Zemlju 1968. godine?";
+        let pool14[2] = "Koji je jedini film u povijesti osvojio Oscara za najbolji film bez ijedne druge nominacije?";
+        let pool14[3] = "U kojem se gradu nalazi najstariji botani}ki vrt na svijetu na izvornoj lokaciji?";
+        let pool14[4] = "Koja je prva dr`ava na svijetu uvela sustav po{tanskih brojeva 1941. godine?";
+        /*let pool14[5] = "Koji je fizi}ar jedini dobio dvije Nobelove nagrade za fiziku?";*/
+
+        let ans14[0] = "San Marino";
+        let ans14[1] = "@vicarska";
+        let ans14[2] = "Island";
+        let ans14[3] = "Liberija"; // 1a
+        let ans14[4] = "pas";
+        let ans14[5] = "kornja}a";
+        let ans14[6] = "{takor";
+        let ans14[7] = "ma}ka"; // 2b
+        let ans14[8] = "Krila";
+        let ans14[9] = "Rebecca";
+        let ans14[10] = "Grand Hotel";
+        let ans14[11] = "Cimarron"; // 3c
+        let ans14[12] = "Pisa";
+        let ans14[13] = "Firenca";
+        let ans14[14] = "Rim";
+        let ans14[15] = "Padova";
+        let ans14[16] = "Njema}ka";
+        let ans14[17] = "SAD";
+        let ans14[18] = "Ujedinjeno Kraljevstvo";
+        let ans14[19] = "Francuska";
+        /*let ans14[20] = "Marie Curie";
+        let ans14[21] = "John Bardeen";
+        let ans14[22] = "Richard Feynman";
+        let ans14[23] = "Max Planck";*/
+
+        return;
+    }
+
+    function void init15(){
+        do Game.obrisiNizStringova(pool14,5);
+        do Game.obrisiNizStringova(ans14,20);
+
+        let pool15 = Array.new(4);
+        let ans15 = Array.new(16);
+
+        let pool15[0] = "Koji je od ovih ameri}kih predsjednika bio u televizijskoj seriji Laugh-In?";
+        let pool15[1] = "Koji je slavni pirat poginuo u bitci kod obale dana{nje Sjeverne Karoline 1718. godine?";
+        let pool15[2] = "Pod kojim je imenom poznat broj koji se sastoji od znamenke 1 iza koje slijedi 100 nula?";
+        let pool15[3] = "Koji je hrvatski grad prvi u Europi uveo javnu elektri}nu rasvjetu?";
+        /*let pool15[4] = "Koji je kemijski element dobio ime po selu u @kotskoj, a ne po osobi ili dr`avi?";*/
+
+        let ans15[0] = "Richard Nixon";
+        let ans15[1] = "Lyndon Johnson";
+        let ans15[2] = "Jimmy Carter";
+        let ans15[3] = "Gerald Ford"; // 1a
+        let ans15[4] = "Calico Jack";
+        let ans15[5] = "Crnobradi";
+        let ans15[6] = "Bartholomew Roberts";
+        let ans15[7] = "Kapetan Kidd"; // 2b
+        let ans15[8] = "Megatron";
+        let ans15[9] = "Gigabit";
+        let ans15[10] = "Googol";
+        let ans15[11] = "Nanomol"; // 3c
+        let ans15[12] = "Zagreb";
+        let ans15[13] = "Vara`din";
+        let ans15[14] = "Rijeka";
+        let ans15[15] = "@ibenik";
+        /*let ans15[16] = "Stroncij";
+        let ans15[17] = "Rutenij";
+        let ans15[18] = "Holmij";
+        let ans15[19] = "Samarij";*/
+
+        return;
+    }
+
+    function void obrisiNizStringova(Array niz, int duljina) {
+        var int i;
+        var String s;
+        let i = 0;
+        while (i < duljina) {
+            let s = niz[i];
+            do s.dispose();
+            let i = i + 1;
+        }
+        do niz.dispose();
+        return;
+    }
+
+    function bool getjok1()
+    {
+        return jok1;
+    }
+
+    function bool getjok2()
+    {
+        return jok2;
+    }
+
+    function bool getjok3()
+    {
+        return jok3;
+    }
+
+    function String getNagrada() {
+        return tablicaNagrada[brojPitanja - 1];
+    }
+
+    function void setjok1(bool b)
+    {
+        let jok1 = b;
+        return;
+    }
+
+    function void setjok2(bool b)
+    {
+        let jok2 = b;
+        return;
+    }
+
+    function void setjok3(bool b)
+    {
+        let jok3 = b;
+        return;
+    }
+
+    function void resetPitanje() {
+        let vA = true; let vB = true; let vC = true; let vD = true;
+        return;
+    }
+
+    function boolean getvA() { return vA; }
+    function boolean getvB() { return vB; }
+    function boolean getvC() { return vC; }
+    function boolean getvD() { return vD; }
+    
+    function void setvA(boolean b) { let vA = b; return; }
+    function void setvB(boolean b) { let vB = b; return; }
+    function void setvC(boolean b) { let vC = b; return; }
+    function void setvD(boolean b) { let vD = b; return; }
+
+    function void drawJoker5050(int startX, int startY, int blockSize) {
+        var int row, col, i;
+        var Array M; 
+
+        let M = Array.new(105); 
+        let i = 0;
+        while (i < 105) {
+            let M[i] = 0;
+            let i = i + 1;
+        }
+
+        let M[0]=1; let M[1]=1; let M[2]=1;    
+        let M[4]=1; let M[5]=1; let M[6]=1;    
+        let M[14]=1; let M[15]=1; let M[16]=1; 
+        let M[18]=1; let M[19]=1; let M[20]=1; 
+
+        let M[21+0]=1;                         
+        let M[21+4]=1; let M[21+6]=1;           
+        let M[21+10]=1;                        
+        let M[21+14]=1;                        
+        let M[21+18]=1; let M[21+20]=1;        
+
+        let M[42+0]=1; let M[42+1]=1; let M[42+2]=1; 
+        let M[42+4]=1; let M[42+6]=1;                
+        let M[42+14]=1; let M[42+15]=1; let M[42+16]=1; 
+        let M[42+18]=1; let M[42+20]=1;              
+
+        let M[63+2]=1;                         
+        let M[63+4]=1; let M[63+6]=1;           
+        let M[63+10]=1;                        
+        let M[63+16]=1;                        
+        let M[63+18]=1; let M[63+20]=1;        
+
+        let M[84+0]=1; let M[84+1]=1; let M[84+2]=1; 
+        let M[84+4]=1; let M[84+5]=1; let M[84+6]=1; 
+        let M[84+14]=1; let M[84+15]=1; let M[84+16]=1; 
+        let M[84+18]=1; let M[84+19]=1; let M[84+20]=1; 
+
+        let row = 0;
+        while (row < 5) {
+            let col = 0;
+            while (col < 21) {
+                if (M[(row * 21) + col] = 1) {
+                    do Screen.drawRectangle(
+                        startX + (col * blockSize), startY + (row * blockSize),
+                        startX + (col * blockSize) + blockSize, startY + (row * blockSize) + blockSize
+                    );
+                }
+                let col = col + 1;
+            }
+            let row = row + 1;
+        }
+
+        do M.dispose();
+        return;
+    }
+
+    function void drawJokerPrijatelj(int startX, int startY, int blockSize) {
+        var int row, col, i, radius;
+        var Array M; 
+
+        let M = Array.new(99); 
+        let i = 0;
+        while (i < 99) { let M[i] = 0; let i = i + 1; }
+
+        let M[33+7]=1; let M[33+8]=1; 
+        let M[44+6]=1; let M[44+7]=1; 
+        let M[55+5]=1; let M[55+6]=1; 
+        let M[66+4]=1; let M[66+5]=1; 
+        let M[77+2]=1; let M[77+3]=1; 
+
+        let row = 0;
+        while (row < 9) {
+            let col = 0;
+            while (col < 11) {
+                if (M[(row * 11) + col] = 1) {
+                    do Screen.drawRectangle(
+                        startX + (col * blockSize), 
+                        startY + (row * blockSize),
+                        startX + (col * blockSize) + blockSize, 
+                        startY + (row * blockSize) + blockSize
+                    );
+                }
+                let col = col + 1;
+            }
+            let row = row + 1;
+        }
+
+        let radius = blockSize * 2; 
+        do Screen.drawCircle(startX + (10 * blockSize), startY + (1 * blockSize), radius);
+        do Screen.drawCircle(startX + (1 * blockSize), startY + (8 * blockSize), radius);
+
+        do M.dispose();
+        return;
+    }
+
+    function void drawJokerPublika(int x, int y, int size) {
+        do Screen.drawCircle(x, y, size);             
+        do Screen.drawRectangle(x-size, y+size+1, x+size, y+(size*4)); 
+
+        let x = x + (size * 4);
+        do Screen.drawCircle(x, y, size);             
+        do Screen.drawRectangle(x-size, y+size+1, x+size, y+(size*4));
+
+        let x = x + (size * 4);
+        do Screen.drawCircle(x, y, size);             
+        do Screen.drawRectangle(x-size, y+size+1, x+size, y+(size*4));
+        
+        return;
+    }
+
+    function void setbrojPitanja(int broj)
+    {
+        let brojPitanja = broj;
+        return;
+    }
+
+    function String getOsigurani(int brojPitanja) {
+        var String o1,o2,o3;
+
+        let o1 = "0";
+        let o2 = "1 000";
+        let o3 = "32 000";
+        if(brojPitanja<6)
+        {
+            return o1;
+        }
+        else
+        {
+            if(brojPitanja<11)
+            {
+                return o2;
+            }
+            else
+            {
+                return o3;
+            }
+        }
+    }
+
+    function void GoreLijevo()
+    {
+        do myPrint.moveCursor(0,0);
+        do myPrint.printString("Broj pitanja: ");
+        do myPrint.printInt(brojPitanja);
+        do myPrint.println();
+        do myPrint.printString("Osigurani iznos: ");
+        do myPrint.printString(Game.getOsigurani(brojPitanja));
+        do myPrint.printString("e");
+        do Screen.drawRectangle(0,28,195,30);
+        do Screen.drawRectangle(195,0,197,30);
+        return;
+    }
+
+    function void odgovorA(String odgovor)
+    {
+        var int i,j,z,t,posljednjiRazmak,len;
+
+        let i = 0;
+        let j = 0;
+        let z = 0;
+        let t = 0;
+        let posljednjiRazmak = 0;
+        let len = odgovor.length();
+
+        do myPrint.moveCursor(16, 6);
+        do myPrint.printString("A ");
+        while (j < len){
+            if ((len - j)<15){
+                while (j<len){
+                    do myPrint.printChar(odgovor.charAt(j));
+                    let j = j + 1;
+                }
+            } 
+            else {
+                let t = j;
+                let posljednjiRazmak = j; 
+                while (t<(j + 15)){
+                    if (odgovor.charAt(t) = 32) {
+                        let posljednjiRazmak = t;
+                    }
+                    let t = t + 1;
+                }
+                while (j<posljednjiRazmak){
+                    do myPrint.printChar(odgovor.charAt(j));
+                    let j = j + 1;
+                }
+                let z = z + 1;
+                do myPrint.moveCursor(16 + z, 8);
+                if (odgovor.charAt(j) = 32){
+                    let j = j + 1;
+                }
+            }
+        }
+        return;
+    }
+    function void odgovorB(String odgovor)
+    {
+        var int i,j,z,t,posljednjiRazmak,len;
+
+        let i = 0;
+        let j = 0;
+        let z = 0;
+        let t = 0;
+        let posljednjiRazmak = 0;
+        let len = odgovor.length();
+
+        do myPrint.moveCursor(16, 28);
+        do myPrint.printString("B ");
+        while (j < len){
+            if ((len - j)<15){
+                while (j<len){
+                    do myPrint.printChar(odgovor.charAt(j));
+                    let j = j + 1;
+                }
+            } 
+            else {
+                let t = j;
+                let posljednjiRazmak = j; 
+                while (t<(j + 15)){
+                    if (odgovor.charAt(t) = 32) {
+                        let posljednjiRazmak = t;
+                    }
+                    let t = t + 1;
+                }
+                while (j<posljednjiRazmak){
+                    do myPrint.printChar(odgovor.charAt(j));
+                    let j = j + 1;
+                }
+                let z = z + 1;
+                do myPrint.moveCursor(16 + z, 30);
+                if (odgovor.charAt(j) = 32){
+                    let j = j + 1;
+                }
+            }
+        }
+        return;
+    }
+    function void odgovorC(String odgovor)
+    {
+        var int i,j,z,t,posljednjiRazmak,len;
+
+        let i = 0;
+        let j = 0;
+        let z = 0;
+        let t = 0;
+        let posljednjiRazmak = 0;
+        let len = odgovor.length();
+
+        do myPrint.moveCursor(20, 6);
+        do myPrint.printString("C ");
+        while (j < len){
+            if ((len - j)<15){
+                while (j<len){
+                    do myPrint.printChar(odgovor.charAt(j));
+                    let j = j + 1;
+                }
+            } 
+            else {
+                let t = j;
+                let posljednjiRazmak = j; 
+                while (t<(j + 15)){
+                    if (odgovor.charAt(t) = 32) {
+                        let posljednjiRazmak = t;
+                    }
+                    let t = t + 1;
+                }
+                while (j<posljednjiRazmak){
+                    do myPrint.printChar(odgovor.charAt(j));
+                    let j = j + 1;
+                }
+                let z = z + 1;
+                do myPrint.moveCursor(20 + z, 8);
+                if (odgovor.charAt(j) = 32){
+                    let j = j + 1;
+                }
+            }
+        }
+        return;
+    }
+    function void odgovorD(String odgovor)
+    {
+        var int i,j,z,t,posljednjiRazmak,len;
+
+        let i = 0;
+        let j = 0;
+        let z = 0;
+        let t = 0;
+        let posljednjiRazmak = 0;
+        let len = odgovor.length();
+
+        do myPrint.moveCursor(20, 28);
+        do myPrint.printString("D ");
+        while (j < len){
+            if ((len - j)<15){
+                while (j<len){
+                    do myPrint.printChar(odgovor.charAt(j));
+                    let j = j + 1;
+                }
+            } 
+            else {
+                let t = j;
+                let posljednjiRazmak = j; 
+                while (t<(j + 15)){
+                    if (odgovor.charAt(t) = 32) {
+                        let posljednjiRazmak = t;
+                    }
+                    let t = t + 1;
+                }
+                while (j<posljednjiRazmak){
+                    do myPrint.printChar(odgovor.charAt(j));
+                    let j = j + 1;
+                }
+                let z = z + 1;
+                do myPrint.moveCursor(20 + z, 30);
+                if (odgovor.charAt(j) = 32){
+                    let j = j + 1;
+                }
+            }
+        }
+        return;
+    }
+
+    function void odgovorOdustajem()
+    {
+        do myPrint.moveCursor(16, 49);
+        do myPrint.printString("E Odustajem");
+        do myPrint.moveCursor(19, 49);
+        do myPrint.printString("IZNOS:");
+        do myPrint.moveCursor(20, 49);
+        do myPrint.printString(tablicaNagrada[brojPitanja-1]);
+        do myPrint.printString("e");
+        return;
+    }
+
+    function void CrtanjePitanjaOdgovora(int odabranoPitanje)
+    {
+        var int i,j,t,z,len,posljednjiRazmak,centar;
+        var String pitanje,odgA,odgB,odgC,odgD;
+        
+        if(brojPitanja=1)
+        {
+            let pitanje = pool1[odabranoPitanje];
+            let odgA = ans1[4*odabranoPitanje];
+            let odgB = ans1[4*odabranoPitanje+1];
+            let odgC = ans1[4*odabranoPitanje+2];
+            let odgD = ans1[4*odabranoPitanje+3];
+        }
+        if(brojPitanja=2)
+        {
+            let pitanje = pool2[odabranoPitanje];
+            let odgA = ans2[4*odabranoPitanje];
+            let odgB = ans2[4*odabranoPitanje+1];
+            let odgC = ans2[4*odabranoPitanje+2];
+            let odgD = ans2[4*odabranoPitanje+3];
+        }
+        if(brojPitanja=3)
+        {
+            let pitanje = pool3[odabranoPitanje];
+            let odgA = ans3[4*odabranoPitanje];
+            let odgB = ans3[4*odabranoPitanje+1];
+            let odgC = ans3[4*odabranoPitanje+2];
+            let odgD = ans3[4*odabranoPitanje+3];
+        }
+        if(brojPitanja=4)
+        {
+            let pitanje = pool4[odabranoPitanje];
+            let odgA = ans4[4*odabranoPitanje];
+            let odgB = ans4[4*odabranoPitanje+1];
+            let odgC = ans4[4*odabranoPitanje+2];
+            let odgD = ans4[4*odabranoPitanje+3];
+        }
+        if(brojPitanja=5)
+        {
+            let pitanje = pool5[odabranoPitanje];
+            let odgA = ans5[4*odabranoPitanje];
+            let odgB = ans5[4*odabranoPitanje+1];
+            let odgC = ans5[4*odabranoPitanje+2];
+            let odgD = ans5[4*odabranoPitanje+3];
+        }
+        if(brojPitanja=6)
+        {
+            let pitanje = pool6[odabranoPitanje];
+            let odgA = ans6[4*odabranoPitanje];
+            let odgB = ans6[4*odabranoPitanje+1];
+            let odgC = ans6[4*odabranoPitanje+2];
+            let odgD = ans6[4*odabranoPitanje+3];
+        }
+        if(brojPitanja=7)
+        {
+            let pitanje = pool7[odabranoPitanje];
+            let odgA = ans7[4*odabranoPitanje];
+            let odgB = ans7[4*odabranoPitanje+1];
+            let odgC = ans7[4*odabranoPitanje+2];
+            let odgD = ans7[4*odabranoPitanje+3];
+        }
+        if(brojPitanja=8)
+        {
+            let pitanje = pool8[odabranoPitanje];
+            let odgA = ans8[4*odabranoPitanje];
+            let odgB = ans8[4*odabranoPitanje+1];
+            let odgC = ans8[4*odabranoPitanje+2];
+            let odgD = ans8[4*odabranoPitanje+3];
+        }
+        if(brojPitanja=9)
+        {
+            let pitanje = pool9[odabranoPitanje];
+            let odgA = ans9[4*odabranoPitanje];
+            let odgB = ans9[4*odabranoPitanje+1];
+            let odgC = ans9[4*odabranoPitanje+2];
+            let odgD = ans9[4*odabranoPitanje+3];
+        }
+        if(brojPitanja=10)
+        {
+            let pitanje = pool10[odabranoPitanje];
+            let odgA = ans10[4*odabranoPitanje];
+            let odgB = ans10[4*odabranoPitanje+1];
+            let odgC = ans10[4*odabranoPitanje+2];
+            let odgD = ans10[4*odabranoPitanje+3];
+        }
+        if(brojPitanja=11)
+        {
+            let pitanje = pool11[odabranoPitanje];
+            let odgA = ans11[4*odabranoPitanje];
+            let odgB = ans11[4*odabranoPitanje+1];
+            let odgC = ans11[4*odabranoPitanje+2];
+            let odgD = ans11[4*odabranoPitanje+3];
+        }
+        if(brojPitanja=12)
+        {
+            let pitanje = pool12[odabranoPitanje];
+            let odgA = ans12[4*odabranoPitanje];
+            let odgB = ans12[4*odabranoPitanje+1];
+            let odgC = ans12[4*odabranoPitanje+2];
+            let odgD = ans12[4*odabranoPitanje+3];
+        }
+        if(brojPitanja=13)
+        {
+            let pitanje = pool13[odabranoPitanje];
+            let odgA = ans13[4*odabranoPitanje];
+            let odgB = ans13[4*odabranoPitanje+1];
+            let odgC = ans13[4*odabranoPitanje+2];
+            let odgD = ans13[4*odabranoPitanje+3];
+        }
+        if(brojPitanja=14)
+        {
+            let pitanje = pool14[odabranoPitanje];
+            let odgA = ans14[4*odabranoPitanje];
+            let odgB = ans14[4*odabranoPitanje+1];
+            let odgC = ans14[4*odabranoPitanje+2];
+            let odgD = ans14[4*odabranoPitanje+3];
+        }
+        if(brojPitanja=15)
+        {
+            let pitanje = pool15[odabranoPitanje];
+            let odgA = ans15[4*odabranoPitanje];
+            let odgB = ans15[4*odabranoPitanje+1];
+            let odgC = ans15[4*odabranoPitanje+2];
+            let odgD = ans15[4*odabranoPitanje+3];
+        }
+        let len = pitanje.length();
+
+        do Screen.drawRectangle(30,80,360,84);
+        do Screen.drawRectangle(30,160,360,164);
+        do Screen.drawRectangle(30,80,34,160);    // 39 slova stane u 1 red
+        do Screen.drawRectangle(356,80,360,160);
+        
+        do Screen.drawRectangle(30,170,185,174);
+        do Screen.drawRectangle(30,200,185,204);
+        do Screen.drawRectangle(30,170,34,204);
+        do Screen.drawRectangle(181,170,185,204);
+
+        do Screen.drawRectangle(205,170,360,174);
+        do Screen.drawRectangle(205,200,360,204);
+        do Screen.drawRectangle(205,170,209,204);
+        do Screen.drawRectangle(356,170,360,204);
+
+        do Screen.drawRectangle(30,213,185,217);
+        do Screen.drawRectangle(30,243,185,247);
+        do Screen.drawRectangle(30,213,34,247);
+        do Screen.drawRectangle(181,213,185,247);
+
+        do Screen.drawRectangle(205,213,360,217);
+        do Screen.drawRectangle(205,243,360,247);
+        do Screen.drawRectangle(205,213,209,247);
+        do Screen.drawRectangle(356,213,360,247);
+
+        do Screen.drawRectangle(374,170,496,174);
+        do Screen.drawRectangle(374,243,496,247);
+        do Screen.drawRectangle(374,170,378,247);
+        do Screen.drawRectangle(492,170,496,247);
+
+        do Game.odgovorOdustajem();
+
+        if(Main.getPon()=0) {do Sys.wait(1750);}
+
+        let i = 0;
+        let j = 0;
+        let z = 0;
+        let t = 0;
+        let posljednjiRazmak = 0;
+        if (len<38) {
+            let centar = (38 - len) / 2;
+            do myPrint.moveCursor(9, 6 + centar);
+            
+            while (j<len) {
+                do myPrint.printChar(pitanje.charAt(j));
+                let j = j + 1;
+            }
+        } 
+        else
+        {   do myPrint.moveCursor(9, 6);
+                while (j<len){
+                    if ((len-j)<38){
+                        while (j<len){
+                            do myPrint.printChar(pitanje.charAt(j));
+                            let j = j + 1;
+                        }
+                    } 
+                    else {
+                        let t = j;
+                        let posljednjiRazmak = j; 
+                        while (t<(j + 38)){
+                            if (pitanje.charAt(t) = 32) {
+                                let posljednjiRazmak = t;
+                            }
+                            let t = t + 1;
+                        }
+                        while (j<posljednjiRazmak){
+                            do myPrint.printChar(pitanje.charAt(j));
+                            let j = j + 1;
+                        }
+                        let z = z + 1;
+                        do myPrint.moveCursor(9 + z, 6);
+                        if (pitanje.charAt(j) = 32){
+                            let j = j + 1;
+                        }
+                    }
+            }
+        }
+        if(Main.getPon()=0) {do Sys.wait(1500);}
+        do Game.odgovorA(odgA);
+        if(Main.getPon()=0) {do Sys.wait(1500);}
+        do Game.odgovorB(odgB);
+        if(Main.getPon()=0) {do Sys.wait(1500);}
+        do Game.odgovorC(odgC);
+        if(Main.getPon()=0) {do Sys.wait(1500);}
+        do Game.odgovorD(odgD);
+        return;
+    }
+
+    function int getTocanOdg(int odabranoPitanje)
+    {
+        let tocanOdg = odabranoPitanje;
+        while(~((tocanOdg-4)<0))
+        {
+            let tocanOdg = tocanOdg - 4;
+        }
+        return tocanOdg;
+    }
+
+    function void drawJokeri()
+    {
+        if(jok1=true){
+            do Screen.drawRectangle(30,50,138,54);
+            do Screen.drawRectangle(30,50,34,80);
+            do Screen.drawRectangle(138,50,142,80);
+            do Screen.drawRectangle(248,50,252,80);
+            do myPrint.moveCursor(5, 6);
+            do myPrint.printString("1");
+            do Game.drawJoker5050(65,65,2);
+        }    
+        if(jok2=true){
+            do Screen.drawRectangle(138,50,248,54);
+            do Screen.drawRectangle(138,50,142,80);
+            do Screen.drawRectangle(248,50,252,80);
+            do myPrint.moveCursor(5, 20);
+            do myPrint.printString("2");
+            do Game.drawJokerPublika(183,65,3);
+
+        }
+        if(jok3=true)
+        {
+            do Screen.drawRectangle(248,50,360,54);
+            do Screen.drawRectangle(356,50,360,80);
+            do Screen.drawRectangle(138,50,142,80);
+            do Screen.drawRectangle(248,50,252,80);
+            do myPrint.moveCursor(5, 33);
+            do myPrint.printString("3");
+            do Game.drawJokerPrijatelj(292,58,2);
+        }
+        if((jok1=false) & (jok2=false))
+        {
+            do Screen.setColor(false);
+            do Screen.drawRectangle(138,50,142,80);
+            do Screen.setColor(true);
+        }
+        if((jok2=false) & (jok3=false))
+        {
+            do Screen.setColor(false);
+            do Screen.drawRectangle(248,50,252,80);
+            do Screen.setColor(true);
+        }
+        return;
+    }
+
+    function void pokreniPitanje(int odabrano)
+    {
+        do Game.GoreLijevo();
+        do Game.drawJokeri();
+        do Game.CrtanjePitanjaOdgovora(odabrano);
+        return;
+    }
+}

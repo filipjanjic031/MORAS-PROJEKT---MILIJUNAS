@@ -1,0 +1,152 @@
+class HomeScreen{
+
+    function void drawFrame() {
+        do Screen.drawRectangle(5, 5, 506, 10);
+        do Screen.drawRectangle(5, 246, 506, 251);
+        do Screen.drawRectangle(5, 5, 10, 251);
+        do Screen.drawRectangle(501, 5, 506, 251);
+        return;
+    }
+
+
+    function void drawGornjiVijenac() {
+        do Screen.drawRectangle(217, 12, 301, 24);
+        do Screen.drawRectangle(205, 24, 217, 36);
+        do Screen.drawRectangle(301, 24, 313, 36);
+        do Screen.drawRectangle(193, 36, 205, 60);
+        do Screen.drawRectangle(313, 36, 325, 60);
+        do Screen.drawRectangle(181, 60, 193, 84);
+        do Screen.drawRectangle(325, 60, 337, 84);
+
+        return;
+    }
+
+    function void drawDonjiVijenac() {
+        do Screen.drawRectangle(181, 132, 193, 156);
+        do Screen.drawRectangle(325, 132, 337, 156);
+        do Screen.drawRectangle(193, 156, 205, 180);
+        do Screen.drawRectangle(313, 156, 325, 180);
+        do Screen.drawRectangle(205, 180, 217, 192);
+        do Screen.drawRectangle(301, 180, 313, 192);
+        do Screen.drawRectangle(217, 192, 301, 204);
+
+        return;
+    }
+
+    function void drawM() {
+        do Screen.drawRectangle(132, 90, 138, 126);
+        do Screen.drawRectangle(156, 90, 162, 126);
+        do Screen.drawRectangle(138, 96, 144, 102);
+        do Screen.drawRectangle(144, 102, 150, 108);
+        do Screen.drawRectangle(150, 96, 156, 102);
+        return;
+    }
+
+    function void drawI1() {
+        do Screen.drawRectangle(168, 90, 186, 96);
+        do Screen.drawRectangle(174, 96, 180, 120);
+        do Screen.drawRectangle(168, 120, 186, 126);
+        
+        return;
+    }
+
+    function void drawL() {
+        do Screen.drawRectangle(192, 90, 198, 126);
+        do Screen.drawRectangle(192, 120, 210, 126);
+
+        return;
+    }
+
+    function void drawI2() {
+        do Screen.drawRectangle(216, 90, 234, 96);
+        do Screen.drawRectangle(222, 96, 228, 120);
+        do Screen.drawRectangle(216, 120, 234, 126);
+
+        return;
+    }
+
+    function void drawJ() {
+        do Screen.drawRectangle(252, 90, 258, 126);
+        do Screen.drawRectangle(240, 114, 246, 126);
+        do Screen.drawRectangle(246, 120, 252, 126);
+
+        return;
+    }
+
+    function void drawU() {
+        do Screen.drawRectangle(264, 90, 270, 120);
+        do Screen.drawRectangle(282, 90, 288, 120);
+        do Screen.drawRectangle(264, 120, 288, 126);
+
+        return;
+    }
+
+    function void drawN() {
+        do Screen.drawRectangle(294, 90, 300, 126);
+        do Screen.drawRectangle(318, 90, 324, 126);
+        do Screen.drawRectangle(300, 96, 306, 102);
+        do Screen.drawRectangle(306, 102, 312, 108);
+        do Screen.drawRectangle(312, 108, 318, 114);
+
+        return;
+    }
+
+    function void drawA() {
+        do Screen.drawRectangle(330, 90, 336, 126);
+        do Screen.drawRectangle(348, 90, 354, 126);
+        do Screen.drawRectangle(336, 90, 348, 96);
+        do Screen.drawRectangle(336, 102, 348, 108);
+        return;
+    }
+
+    function void drawSh() {
+        do Screen.drawRectangle(360, 72, 366, 78);
+        do Screen.drawRectangle(372, 72, 378, 78);
+        do Screen.drawRectangle(366, 78, 372, 84);
+        do Screen.drawRectangle(360, 90, 378, 96);
+        do Screen.drawRectangle(360, 96, 366, 102);
+        do Screen.drawRectangle(360, 102, 378, 108);
+        do Screen.drawRectangle(372, 108, 378, 120);
+        do Screen.drawRectangle(360, 120, 378, 126);
+
+        return;
+    }
+
+    function void drawText() {
+        do HomeScreen.drawM();
+        do HomeScreen.drawI1();
+        do HomeScreen.drawL();
+        do HomeScreen.drawI2();
+        do HomeScreen.drawJ();
+        do HomeScreen.drawU();
+        do HomeScreen.drawN();
+        do HomeScreen.drawA();
+        do HomeScreen.drawSh();
+        return;
+    }
+
+    function void drawStartMessage() {
+        do myPrint.moveCursor(20,16);
+        do myPrint.printString("Pritisni ENTER za po}etak igre...");
+        return;
+    }
+
+    function void drawVijenac(){
+        do HomeScreen.drawGornjiVijenac();
+        do HomeScreen.drawDonjiVijenac();
+        return;
+    }
+
+    function void HomeScreenMain() {
+        do Main.initGame();
+        do myPrint.init();
+        do myPrint.initLineLength();
+        do Screen.clearScreen();
+        do HomeScreen.drawFrame();
+        do HomeScreen.drawVijenac();
+        do HomeScreen.drawText();
+        do HomeScreen.drawStartMessage();
+        
+        return;
+    }
+}
