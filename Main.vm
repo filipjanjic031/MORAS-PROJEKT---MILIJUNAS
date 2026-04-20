@@ -110,22 +110,8 @@ push constant 0
 return
 function Main.provjeriOdgovor 1
 push argument 0
+call Game.getTocanOdg 1
 pop local 0
-label WHILE_EXP0
-push local 0
-push constant 4
-sub
-not
-push constant 0
-lt
-not
-if-goto WHILE_END0
-push local 0
-push constant 4
-sub
-pop local 0
-goto WHILE_EXP0
-label WHILE_END0
 push argument 1
 push constant 65
 eq
@@ -612,12 +598,10 @@ add
 pop local 1
 goto IF_END0
 label IF_FALSE0
-push constant 550
+push constant 320
 push static 2
-push constant 4
-add
 call Math.divide 2
-push constant 15
+push constant 10
 call Generator.randRange 1
 add
 pop local 1
@@ -627,13 +611,11 @@ push local 1
 sub
 pop local 2
 push local 2
-push constant 2
-call Math.divide 2
 call Generator.randRange 1
 pop local 3
 push local 2
-push constant 2
-call Math.divide 2
+push local 3
+sub
 call Generator.randRange 1
 pop local 4
 push local 2
@@ -1221,6 +1203,19 @@ not
 if-goto WHILE_END0
 call Keyboard.keyPressed 0
 pop local 10
+push static 3
+push constant 1
+add
+pop static 3
+push static 3
+push constant 32766
+gt
+if-goto IF_TRUE25
+goto IF_FALSE25
+label IF_TRUE25
+push constant 0
+pop static 3
+label IF_FALSE25
 goto WHILE_EXP0
 label WHILE_END0
 push constant 0
@@ -1737,20 +1732,18 @@ not
 not
 if-goto WHILE_END0
 push static 3
-push constant 32767
-lt
-if-goto IF_TRUE22
-goto IF_FALSE22
-label IF_TRUE22
-push static 3
 push constant 1
 add
 pop static 3
-goto IF_END22
-label IF_FALSE22
+push static 3
+push constant 32766
+gt
+if-goto IF_TRUE22
+goto IF_FALSE22
+label IF_TRUE22
 push constant 0
 pop static 3
-label IF_END22
+label IF_FALSE22
 call Keyboard.keyPressed 0
 pop local 10
 goto WHILE_EXP0
