@@ -190,12 +190,12 @@ class Main
         if (brojPitanja < 7) {
             let baza = (-5)*brojPitanja + 95 + Generator.randRange(10);
         } else {
-            let baza = (550/(brojPitanja + 4)) + Generator.randRange(15);
+            let baza = (320/brojPitanja) + Generator.randRange(10);
         }
         let ostatak = 100 - baza;
 
-        let p1 = Generator.randRange(ostatak / 2);
-        let p2 = Generator.randRange(ostatak / 2);
+        let p1 = Generator.randRange(ostatak);
+        let p2 = Generator.randRange(ostatak-p1);
         let p3 = ostatak - (p1 + p2);
 
         if (tocan = 0) { let pa = baza; let pb = p1; let pc = p2; let pd = p3; }
